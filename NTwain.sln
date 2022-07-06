@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{4CE0B9ED-2CD1-440F-B4EC-35ECA6D61EFE}"
 	ProjectSection(SolutionItems) = preProject
 		HISTORY.md = HISTORY.md
-		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 		Spec\twain2.3.h = Spec\twain2.3.h
 	EndProjectSection
