@@ -384,16 +384,52 @@ namespace Sample.WindowsForm
         private void GetCaps()
         {
             var caps = _twain.CurrentSource.Capabilities;
-            
-            PlatformInfo.Current.Log.Info("ICapAutoBright: " + caps.ICapAutoBright.GetCurrent());            
+
+            PlatformInfo.Current.Log.Info("\n\n\n");
+
+            // Show Indicator
+            PlatformInfo.Current.Log.Info("CapIndicators: " + caps.CapIndicators.GetCurrent());
+
+            // Brightness
+            PlatformInfo.Current.Log.Info("ICapAutoBright: " + caps.CapIndicators.GetCurrent());
             PlatformInfo.Current.Log.Info("ICapBrightness: " + caps.ICapBrightness.GetCurrent());
+
+            // Constrast
             PlatformInfo.Current.Log.Info("ICapContrast: " + caps.ICapContrast.GetCurrent());
 
+            // Physical Height & Width
             PlatformInfo.Current.Log.Info("ICapPhysicalHeight: " + caps.ICapPhysicalHeight.GetCurrent());
             PlatformInfo.Current.Log.Info("ICapPhysicalWidth: " + caps.ICapPhysicalWidth.GetCurrent());
 
-            PlatformInfo.Current.Log.Info("ICapSupportedSizes: " + caps.ICapSupportedSizes.GetCurrent());
+            // Enderezamiento automático
+            PlatformInfo.Current.Log.Info("ICapAutomaticDeskew: " + caps.ICapAutomaticDeskew.GetCurrent());
+
+            // Rotación automática
+            PlatformInfo.Current.Log.Info("ICapAutomaticRotate: " + caps.ICapAutomaticRotate.GetCurrent());
+
+            // Recorte automático
+            PlatformInfo.Current.Log.Info("ICapAutomaticBorderDetection: " + caps.ICapAutomaticBorderDetection.GetCurrent());
+
+            // Autosize
             PlatformInfo.Current.Log.Info("ICapAutoSize: " + caps.ICapAutoSize.GetCurrent());
+
+            // Page size (standard size)
+            PlatformInfo.Current.Log.Info("ICapSupportedSizes: " + caps.ICapSupportedSizes.GetCurrent());
+
+            // Measure unit (Inches)
+            PlatformInfo.Current.Log.Info("ICapUnits: " + caps.ICapUnits.GetCurrent());
+
+            // Page size (in inches)
+            TWFrame fr = caps.ICapFrames.GetCurrent();
+            PlatformInfo.Current.Log.Info("Custom size (Left, Top, Right, Bottom): " + fr.Left + ", " + fr.Top + ", " + fr.Right + ", " + fr.Bottom);
+
+            /*
+            fr.Left = (float)0;
+            fr.Top = (float)0;
+            fr.Right = (float)210/10;
+            fr.Bottom = (float)297/10; */
+
+            PlatformInfo.Current.Log.Info("\n\n\n");
         }
 
         private void LoadDuplex(ICapWrapper<BoolType> cap)
