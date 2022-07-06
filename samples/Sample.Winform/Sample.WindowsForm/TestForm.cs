@@ -328,7 +328,7 @@ namespace Sample.WindowsForm
             if (groupSize.Enabled = src.Capabilities.ICapSupportedSizes.IsSupported)
             {
                 LoadPaperSize(src.Capabilities.ICapSupportedSizes);
-                LoadSize();
+                GetCaps();
             }
 
             // Duplex
@@ -381,16 +381,19 @@ namespace Sample.WindowsForm
                 groupSize.Text = labelTest;
         }
 
-        private void LoadSize()
+        private void GetCaps()
         {
-            var src = _twain.CurrentSource;
+            var caps = _twain.CurrentSource.Capabilities;
             
-            PlatformInfo.Current.Log.Info("ICapPhysicalHeight: " + src.Capabilities.ICapPhysicalHeight.GetCurrent());
-            PlatformInfo.Current.Log.Info("ICapPhysicalWidth: " + src.Capabilities.ICapPhysicalWidth.GetCurrent());
-            PlatformInfo.Current.Log.Info("ICapAutoBright: " + src.Capabilities.ICapAutoBright.GetCurrent());            
-            PlatformInfo.Current.Log.Info("ICapBrightness: " + src.Capabilities.ICapBrightness.GetCurrent());
-            PlatformInfo.Current.Log.Info("ICapContrast: " + src.Capabilities.ICapContrast.GetCurrent());
-            PlatformInfo.Current.Log.Info("ICapAutoSize: " + src.Capabilities.ICapAutoSize.GetCurrent());
+            PlatformInfo.Current.Log.Info("ICapAutoBright: " + caps.ICapAutoBright.GetCurrent());            
+            PlatformInfo.Current.Log.Info("ICapBrightness: " + caps.ICapBrightness.GetCurrent());
+            PlatformInfo.Current.Log.Info("ICapContrast: " + caps.ICapContrast.GetCurrent());
+
+            PlatformInfo.Current.Log.Info("ICapPhysicalHeight: " + caps.ICapPhysicalHeight.GetCurrent());
+            PlatformInfo.Current.Log.Info("ICapPhysicalWidth: " + caps.ICapPhysicalWidth.GetCurrent());
+
+            PlatformInfo.Current.Log.Info("ICapSupportedSizes: " + caps.ICapSupportedSizes.GetCurrent());
+            PlatformInfo.Current.Log.Info("ICapAutoSize: " + caps.ICapAutoSize.GetCurrent());
         }
 
         private void LoadDuplex(ICapWrapper<BoolType> cap)

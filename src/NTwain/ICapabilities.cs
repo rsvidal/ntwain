@@ -543,8 +543,6 @@ namespace NTwain
         /// The xfer count.
         /// </value>
         ICapWrapper<int> CapXferCount { get; }
-
-
         /// <summary>
         /// Gets the property to work with image auto brightness flag for the current source.
         /// </summary>
@@ -1155,8 +1153,6 @@ namespace NTwain
         /// The image zoom factor.
         /// </value>
         ICapWrapper<int> ICapZoomFactor { get; }
-
-
         /// <summary>
         /// Gets the current value for a capability.
         /// </summary>
